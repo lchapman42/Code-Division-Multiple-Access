@@ -75,6 +75,7 @@ class CDM_Test(gr.top_block, Qt.QWidget):
         # Variables
         ##################################################
         self.samp_rate = samp_rate = 1e6
+        self.psk8 = psk8 = digital.constellation_8psk().base()
         self.norm_factor = norm_factor = 1/4
         self.key_length = key_length = 8
         self.bpsk = bpsk = digital.constellation_bpsk().base()
@@ -86,12 +87,12 @@ class CDM_Test(gr.top_block, Qt.QWidget):
         self.digital_constellation_encoder_bc_1_0_0 = digital.constellation_encoder_bc(bpsk)
         self.digital_constellation_encoder_bc_1_0 = digital.constellation_encoder_bc(bpsk)
         self.digital_constellation_encoder_bc_1 = digital.constellation_encoder_bc(bpsk)
-        self.digital_constellation_encoder_bc_0_1 = digital.constellation_encoder_bc(bpsk)
-        self.digital_constellation_encoder_bc_0_0 = digital.constellation_encoder_bc(bpsk)
-        self.digital_constellation_encoder_bc_0 = digital.constellation_encoder_bc(bpsk)
-        self.digital_constellation_decoder_cb_0_1 = digital.constellation_decoder_cb(bpsk)
-        self.digital_constellation_decoder_cb_0_0 = digital.constellation_decoder_cb(bpsk)
-        self.digital_constellation_decoder_cb_0 = digital.constellation_decoder_cb(bpsk)
+        self.digital_constellation_encoder_bc_0_1 = digital.constellation_encoder_bc(psk8)
+        self.digital_constellation_encoder_bc_0_0 = digital.constellation_encoder_bc(psk8)
+        self.digital_constellation_encoder_bc_0 = digital.constellation_encoder_bc(psk8)
+        self.digital_constellation_decoder_cb_0_1 = digital.constellation_decoder_cb(psk8)
+        self.digital_constellation_decoder_cb_0_0 = digital.constellation_decoder_cb(psk8)
+        self.digital_constellation_decoder_cb_0 = digital.constellation_decoder_cb(psk8)
         self.blocks_vector_source_x_0_0_0 = blocks.vector_source_b((0, 0, 1, 1, 0, 0, 1, 1), True, 1, [])
         self.blocks_vector_source_x_0_0 = blocks.vector_source_b((0, 1, 0, 1, 0, 1, 0, 1), True, 1, [])
         self.blocks_vector_source_x_0 = blocks.vector_source_b((0, 0, 0, 0, 0, 0, 0, 0), True, 1, [])
@@ -209,6 +210,12 @@ class CDM_Test(gr.top_block, Qt.QWidget):
         self.blocks_throttle_0_0_0_0.set_sample_rate(self.samp_rate)
         self.blocks_throttle_0_1.set_sample_rate(self.samp_rate)
         self.blocks_throttle_0_2.set_sample_rate(self.samp_rate)
+
+    def get_psk8(self):
+        return self.psk8
+
+    def set_psk8(self, psk8):
+        self.psk8 = psk8
 
     def get_norm_factor(self):
         return self.norm_factor

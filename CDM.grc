@@ -49,7 +49,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 120.0]
+    coordinate: [8, 192.0]
     rotation: 0
     state: true
 - name: key_length
@@ -61,7 +61,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [96, 200.0]
+    coordinate: [96, 288.0]
     rotation: 0
     state: enabled
 - name: norm_factor
@@ -73,9 +73,28 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 272.0]
+    coordinate: [8, 360.0]
     rotation: 0
     state: enabled
+- name: psk8
+  id: variable_constellation
+  parameters:
+    comment: ''
+    const_points: '[-1-1j, -1+1j, 1+1j, 1-1j]'
+    dims: '1'
+    normalization: digital.constellation.AMPLITUDE_NORMALIZATION
+    precision: '8'
+    rot_sym: '4'
+    soft_dec_lut: None
+    sym_map: '[0, 1]'
+    type: 8psk
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [8, 120.0]
+    rotation: 0
+    state: true
 - name: samp_rate
   id: variable
   parameters:
@@ -85,7 +104,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 200.0]
+    coordinate: [8, 288.0]
     rotation: 0
     state: enabled
 - name: analog_const_source_x_0
@@ -791,7 +810,7 @@ blocks:
     comment: 'Input: {-1, +1}
 
       Output: {0, 1}'
-    constellation: bpsk
+    constellation: psk8
     maxoutbuf: '0'
     minoutbuf: '0'
   states:
@@ -809,7 +828,7 @@ blocks:
     comment: 'Input: {-1, +1}
 
       Output: {0, 1}'
-    constellation: bpsk
+    constellation: psk8
     maxoutbuf: '0'
     minoutbuf: '0'
   states:
@@ -827,7 +846,7 @@ blocks:
     comment: 'Input: {-1, +1}
 
       Output: {0, 1}'
-    constellation: bpsk
+    constellation: psk8
     maxoutbuf: '0'
     minoutbuf: '0'
   states:
@@ -845,7 +864,7 @@ blocks:
     comment: 'Input: {0, 1}
 
       Output: {-1, +1}'
-    constellation: bpsk
+    constellation: psk8
     maxoutbuf: '0'
     minoutbuf: '0'
   states:
@@ -863,7 +882,7 @@ blocks:
     comment: 'Input: {0, 1}
 
       Output: {-1, +1}'
-    constellation: bpsk
+    constellation: psk8
     maxoutbuf: '0'
     minoutbuf: '0'
   states:
@@ -881,7 +900,7 @@ blocks:
     comment: 'Input: {0, 1}
 
       Output: {-1, +1}'
-    constellation: bpsk
+    constellation: psk8
     maxoutbuf: '0'
     minoutbuf: '0'
   states:
